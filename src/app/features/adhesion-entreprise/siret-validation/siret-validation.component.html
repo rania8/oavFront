@@ -1,0 +1,22 @@
+<div class="container">
+    <form action="" class="justify-content-center">
+
+        <div class="container">
+            <div class="row justify-content-between ">
+                <div class="col-5">
+                            <div class="form-group">
+                                <label for="inputSiret"class="text-danger"><p class="font-weight-bold">Entrez votre SIRET</p></label>
+                                <input type="text" class="form-control rounded-pill" placeholder="Numéro SIRET" [(ngModel)]="siretValue" id="inputSiret" name="inputSiret">
+                            </div>
+                 </div>
+
+                <div class="col-5 align-self-end ">
+                            <button type="submit" class="btn btn-primary rounded-pill float-right" (click)="onClickBtnValide()">valider</button>
+                 
+               </div>
+            </div>
+        </div>
+</form>
+<span class="border-bottom-0 border-dark"></span>
+
+</div>
