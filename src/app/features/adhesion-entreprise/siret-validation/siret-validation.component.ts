@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiretServiceService } from '../services/siret-service.service';
+import { InformationsServiceService } from '../services/informations-service.service';
 
 @Component({
   selector: 'app-siret-validation',
@@ -8,7 +9,16 @@ import { SiretServiceService } from '../services/siret-service.service';
 })
 export class SiretValidationComponent implements OnInit {
   public siretValue: string = "";
-  constructor(private siretService:SiretServiceService) { }
+  public raisonSocialeValue: string = "";
+  public apeValue: string = "";
+  public adresseValue: string = "";
+  public codePostaleValue: string = "";
+
+
+
+
+
+  constructor(private siretService:SiretServiceService,private informationsService:InformationsServiceService) { }
 
   ngOnInit(): void {
     console.log("it works");
@@ -17,6 +27,7 @@ export class SiretValidationComponent implements OnInit {
   onClickBtnValide(){
     console.log(this.siretValue);
     this.siretService.getInformations(this.siretValue).subscribe(result=>{console.log(result)});
+    //this.informationsService.fillInformations(this.siretValue).subscribe(result=>{console.log(result)});
 
   }
 

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" > 
     <form action="" class="justify-content-center">
 
         <div class="container">
-            <div class="row justify-content-between ">
+            <div class="row  "> 
                 <div class="col-5">
                             <div class="form-group">
                                 <label for="inputSiret"class="text-danger"><p class="font-weight-bold">Entrez votre SIRET</p></label>
@@ -10,13 +10,59 @@
                             </div>
                  </div>
 
-                <div class="col-5 align-self-end ">
+                <div class="col align-self-end  ">
+                    <div class="d-flex justify-content-end ">
+
                             <button type="submit" class="btn btn-primary rounded-pill float-right" (click)="onClickBtnValide()">valider</button>
-                 
+                        </div>
                </div>
+
             </div>
+
+
+            <div class="row m-5 "><span class="border-bottom"></span></div>
+
+
+            <div class="row ">
+                <label for="Informations" class="text-danger"><p class="font-weight-bold">Informations de l'entreprise</p></label>
+              </div>
+              <div class="row ">
+                <label for="" class="text-secondary text-muted">Veilliez saisir votre numéro de SIRET </label>
+              </div>
+          
+              <div class="row " >
+ <div class="invisible"  id ="divInformations">
+
+                <div class="col-5">
+                  <label for="inputRaisonSociale">Raison Sociale</label>
+                  <input type="text" class="form-control rounded-pill" id="inputRaisonSociale" placeholder="RaisonSociale" [(ngModel)]="raisonSocialeValue">
+                </div>
+                <div class="col-5">            <label for="inputAPE">APE</label>
+                      <input type="text" class="form-control rounded-pill" id="inputAPE" placeholder="APE" [(ngModel)]="apeValue">
+             
+                      
+                </div>  
+            <div class="row ">
+              <div class="col-5">
+                <label for="inputAddress">Addresse</label>
+                <input type="text" class="form-control rounded-pill" id="inputAddress" placeholder="num rue nom rue ville" [(ngModel)]="adresseValue">
+              </div>
+              <div class="col-5">
+                <label for="inputCodePostale">Code Postale</label>
+                  <input type="text" class="form-control rounded-pill" id="inputCodePostale" [(ngModel)]="codePostaleValue"  >
+              </div>
+              
+            </div> 
+   </div>
+            </div>
+
+            <div class="col  align-self-end">  
+                <div class="d-flex justify-content-end">
+
+                <button type="submit" class="btn btn-primary rounded-pill " disabled>suivant</button>
+                </div>
+            </div>
+
         </div>
 </form>
-<span class="border-bottom-0 border-dark"></span>
-
 </div>
