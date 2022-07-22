@@ -48,6 +48,7 @@ export class SiretValidationComponent implements OnInit {
         this.etablissement.adresseEtablissement.totaleAdresse = this.etablissement.adresseEtablissement.numeroVoieEtablissement + " " + this.etablissement.adresseEtablissement.typeVoieEtablissement + " " + this.etablissement.adresseEtablissement.libelleVoieEtablissement + " " + this.etablissement.adresseEtablissement.libelleCommuneEtablissement;
       });
     }
+    //else pop up veillez tapez votre siret + check 14 chiffres
   }
 
 
