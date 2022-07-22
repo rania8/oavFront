@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './components/accueil/accueil.component';
 
 import { SiretValidationComponent } from './siret-validation/siret-validation.component';
-import { ProduitComponent } from './produit/produit.component';
+import { ProduitComponent } from './components/produit/produit.component'; 
 
 const routes: Routes = [
 {path:"",
