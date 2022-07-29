@@ -1,56 +1,62 @@
 <div class="container">
+  <app-nav-bar></app-nav-bar>
   <form action="" class="justify-content-center">
     <div class="container">
       <div class="row  ">
-        <div class="col-3">
+        <div class="col-5">
           <div class="form-group">
-            <label for="inputSiret" class="text-danger">
-              <p class="font-weight-bold">Entrez votre SIRET</p>
+            <label for="inputSiret " class="text-danger">
+              <p class="font-weight-bold"><strong>Entrer votre SIRET</strong></p>
             </label>
             <input type="text" class="form-control rounded-pill" placeholder="Numéro SIRET" [(ngModel)]="siretValue"
               id="inputSiret" name="inputSiret">
+              <span class="help-block text-danger" *ngIf="showEnterSIRETError">Entrer votre SIRET</span>
+              <span class="help-block text-danger" *ngIf="showInvalideSIRETError">Entrer les 14 chiffres du SIRET correctement</span>
+
           </div>
         </div>
         <div class="col align-self-end  ">
           <div class="d-flex justify-content-end ">
             <button type="submit" class="btn btn-primary rounded-pill float-right"
-              (click)="onClickBtnValide()">valider</button>
+              (click)="onClickBtnValideSIRET()">valider</button>
           </div>
         </div>
       </div>
       <div class="row ">
         <div class="row m-5 "><span class="border-bottom"></span></div>
-      </div>      <div class="row ">
+      </div>
+      <div class="row ">
         <label for="Informations" class="text-danger">
-          <p class="font-weight-bold">Informations de l'entreprise</p>
+          <p class="font-weight-bold"><strong>Informations de l'entreprise</strong> </p>
         </label>
       </div>
       <div class="row ">
-        <label for="" class="text-secondary text-muted" *ngIf !=displayInfo>Veilliez saisir votre numéro de SIRET
+        <label for="" class="text-secondary text-muted" *ngIf="!displayInfo">Veilliez saisir votre numéro de SIRET
         </label>
       </div>
-      <div class="" id="divInformations" *ngIf=displayInfo>
+      <div class="" id="divInformations" *ngIf="displayInfo">
         <div class="row ">
-          <div class="col-3">
-            <label for="inputRaisonSociale">Raison Sociale</label>
+          <div class="col-5">
+            <label for="inputRaisonSociale"><i>Raison Sociale</i></label>
             <input type="text" class="form-control rounded-pill" name="inputRaisonSociale" id="inputRaisonSociale"
               placeholder="RaisonSociale" [(ngModel)]="etablissement.uniteLegale.denominationUniteLegale">
           </div>
-          <div class="col-3">
-            <label for="inputAPE">APE</label>
+
+          <div class="col-5">
+            <label for="inputAPE"><i>APE</i></label>
             <input type="text" class="form-control rounded-pill" name="inputAPE" id="inputAPE" placeholder="APE"
               [(ngModel)]="etablissement.uniteLegale.activitePrincipaleUniteLegale">
           </div>
           <div class="row ">
-            <div class="col-3">
-              <label for="inputAddress">Addresse</label>
+            <div class="col-5">
+              <label for="inputAddress"><i>Adresse</i></label>
               <input type="text" class="form-control rounded-pill" name="inputAddress" id="inputAddress"
                 placeholder="num rue nom rue ville" [(ngModel)]="etablissement.adresseEtablissement.totaleAdresse">
             </div>
-            <div class="col-3">
-              <label for="inputCodePostale">Code Postale</label>
+            <div class="col-5">
+              <label for="inputCodePostale"><i>Code Postale</i></label>
               <input type="text" class="form-control rounded-pill" name="inputCodePostale" id="inputCodePostale"
-                [(ngModel)]="etablissement.adresseEtablissement.codePostalEtablissement">
+                placeholder="" [(ngModel)]="etablissement.adresseEtablissement.codePostalEtablissement">
             </div>
           </div>
         </div>
@@ -58,7 +64,8 @@
       <div class="row ">
         <div class="col  align-self-end">
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary rounded-pill " *ngIf=displaySuivantBtn>valider</button>
+            <button type="submit" class="btn btn-primary rounded-pill " *ngIf="displaySuivantBtn" 
+            (click)="onClickBtnValideInfo()">valider</button>
           </div>
         </div>
       </div>
@@ -69,6 +76,6 @@
     </div>
   </form>
 
-<app-produit></app-produit>
+  <app-produit id="produitComponent" *ngIf="displayProduit"></app-produit>
 
 </div>
