@@ -1,4 +1,4 @@
-export class UniteLegale{
+export class UniteLegaleModel{
 
     public denominationUniteLegale:string;
     public activitePrincipaleUniteLegale:string;

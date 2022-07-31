@@ -1,4 +1,4 @@
-export class Adresse{
+export class AdresseModel{
     numeroVoieEtablissement: string;
     typeVoieEtablissement:string;
     libelleVoieEtablissement:string;

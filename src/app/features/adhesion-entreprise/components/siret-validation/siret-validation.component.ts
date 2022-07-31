@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SiretServiceService } from '../../services/siret-service.service';
-import { EntrepriseINSEE } from '../../models/entrepriseINSEE';
-import { ReponseEtablissement } from '../../models/responseEtablissement';
+import { EntrepriseINSEEModel } from '../../models/entrepriseINSEEModel';
+import { ReponseEtablissementModel } from '../../models/responseEtablissementModel';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Entreprise } from '../../models/entreprise';
+import { EntrepriseModel } from '../../models/entrepriseModel';
 
 @Component({
   selector: 'app-siret-validation',
@@ -16,14 +16,14 @@ export class SiretValidationComponent implements OnInit {
   public apeValue: string = "";
   public adresseValue: string = "";
   public codePostaleValue: string = "";
-  public etablissement: ReponseEtablissement = new ReponseEtablissement();
+  public etablissement: ReponseEtablissementModel = new ReponseEtablissementModel();
   public displayInfo: boolean = false;
   public displaySuivantBtn: boolean = false;
 
   showEnterSIRETError: boolean = false;
   showInvalideSIRETError: boolean = false;
   public displayProduit: boolean = false;
-  public entreprise: Entreprise = new Entreprise();
+  public entreprise: EntrepriseModel = new EntrepriseModel();
 
 
   constructor(private siretService: SiretServiceService) {
@@ -33,7 +33,7 @@ export class SiretValidationComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("siret-validation component works");
+
   }
 
   onClickBtnValideSIRET() {
@@ -54,25 +54,25 @@ export class SiretValidationComponent implements OnInit {
             this.etablissement.adresseEtablissement.libelleVoieEtablissement + " " +
             this.etablissement.adresseEtablissement.libelleCommuneEtablissement;
         });
-/////////////
-this.entreprise.siret = this.siretValue;
-    this.entreprise.ape = this.etablissement.uniteLegale.activitePrincipaleUniteLegale;
-    this.entreprise.raisonSociale = this.etablissement.uniteLegale.denominationUniteLegale;
-    this.entreprise.codePostal = this.etablissement.adresseEtablissement.codePostalEtablissement;
-    this.entreprise.totaleAdresse = this.etablissement.adresseEtablissement.totaleAdresse;
+        /////////////
+        this.entreprise.siret = this.siretValue;
+        this.entreprise.ape = this.etablissement.uniteLegale.activitePrincipaleUniteLegale;
+        this.entreprise.raisonSociale = this.etablissement.uniteLegale.denominationUniteLegale;
+        this.entreprise.codePostal = this.etablissement.adresseEtablissement.codePostalEtablissement;
+        this.entreprise.totaleAdresse = this.etablissement.adresseEtablissement.totaleAdresse;
 
-    this.entreprise.numeroVoieEtablissement = this.etablissement.adresseEtablissement.numeroVoieEtablissement;
-    this.entreprise.typeVoieEtablissement = this.etablissement.adresseEtablissement.typeVoieEtablissement;
+        this.entreprise.numeroVoieEtablissement = this.etablissement.adresseEtablissement.numeroVoieEtablissement;
+        this.entreprise.typeVoieEtablissement = this.etablissement.adresseEtablissement.typeVoieEtablissement;
 
-   
-      this.entreprise.libelleVoieEtablissement = this.etablissement.adresseEtablissement.libelleVoieEtablissement;
-    
 
-    this.entreprise.libelleCommuneEtablissement = this.etablissement.adresseEtablissement.libelleCommuneEtablissement;
-  
-///////////
-        this.siretService.addEntreprise(this.entreprise).subscribe(rslt =>{
-          console.log(rslt);
+        this.entreprise.libelleVoieEtablissement = this.etablissement.adresseEtablissement.libelleVoieEtablissement;
+
+
+        this.entreprise.libelleCommuneEtablissement = this.etablissement.adresseEtablissement.libelleCommuneEtablissement;
+
+        ///////////
+        this.siretService.addEntreprise(this.entreprise).subscribe(rslt => {
+
           this.entreprise.siret = rslt.siret;
           this.entreprise.ape = rslt.ape;
           this.entreprise.raisonSociale = rslt.raisonSociale;
@@ -82,8 +82,8 @@ this.entreprise.siret = this.siretValue;
           this.entreprise.typeVoieEtablissement = rslt.typeVoieEtablissement;
           this.entreprise.libelleVoieEtablissement = rslt.libelleVoieEtablissement;
           this.entreprise.libelleCommuneEtablissement = rslt.libelleCommuneEtablissement;
-    
- 
+
+
         })
       }
       else {
@@ -101,45 +101,27 @@ this.entreprise.siret = this.siretValue;
   }
 
   onClickBtnValideInfo() {
+
     this.entreprise.siret = this.siretValue;
     this.entreprise.ape = this.etablissement.uniteLegale.activitePrincipaleUniteLegale;
     this.entreprise.raisonSociale = this.etablissement.uniteLegale.denominationUniteLegale;
     this.entreprise.codePostal = this.etablissement.adresseEtablissement.codePostalEtablissement;
     this.entreprise.totaleAdresse = this.etablissement.adresseEtablissement.totaleAdresse;
-    
+
+    this.entreprise.adresse = this.etablissement.adresseEtablissement.totaleAdresse;
+
+
     this.entreprise.numeroVoieEtablissement = this.etablissement.adresseEtablissement.numeroVoieEtablissement;
     this.entreprise.typeVoieEtablissement = this.etablissement.adresseEtablissement.typeVoieEtablissement;
     this.entreprise.libelleVoieEtablissement = this.etablissement.adresseEtablissement.libelleVoieEtablissement;
     this.entreprise.libelleCommuneEtablissement = this.etablissement.adresseEtablissement.libelleCommuneEtablissement;
-  
-   // const lengthOftabOfSplitAdr = this.etablissement.adresseEtablissement.totaleAdresse.split(" ").length;
-   // this.entreprise.numeroVoieEtablissement = this.etablissement.adresseEtablissement.totaleAdresse.split(" ")[0];
-   // this.entreprise.typeVoieEtablissement = this.etablissement.adresseEtablissement.totaleAdresse.split(" ")[1];
-
-  //  let libelleVoie = "";
-  //  for (let i = 2; i < lengthOftabOfSplitAdr - 1; i++) {
-  //    libelleVoie = libelleVoie.concat(this.etablissement.adresseEtablissement.totaleAdresse.split(" ")[i].concat(" "));
-  //    this.entreprise.libelleVoieEtablissement = libelleVoie;
-  //  }
-
-   // this.entreprise.libelleCommuneEtablissement = this.etablissement.adresseEtablissement.totaleAdresse.split(" ")[lengthOftabOfSplitAdr-1];
 
 
     this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => {
-      console.log(this.etablissement.adresseEtablissement.totaleAdresse.split(" "));
-      console.log(rslt);
-      this.entreprise.siret = rslt.siret;
-      this.entreprise.ape = rslt.ape;
-      this.entreprise.raisonSociale = rslt.raisonSociale;
-      this.entreprise.codePostal = rslt.codePostal;
-      this.entreprise.totaleAdresse = rslt.numeroVoieEtablissement + "" + rslt.typeVoieEtablissement + "" + rslt.libelleVoieEtablissement + rslt.libelleCommuneEtablissement;
-      this.entreprise.numeroVoieEtablissement = rslt.numeroVoieEtablissement;
-      this.entreprise.typeVoieEtablissement = rslt.typeVoieEtablissement;
-      this.entreprise.libelleVoieEtablissement = rslt.libelleVoieEtablissement;
-      this.entreprise.libelleCommuneEtablissement = rslt.libelleCommuneEtablissement;
-
+      this.entreprise = rslt;
+      this.entreprise.totaleAdresse = rslt.numeroVoieEtablissement + "" + rslt.typeVoieEtablissement + "" + rslt.libelleVoieEtablissement + rslt.libelleCommuneEtablissement; this.displayProduit = true;
+      this.displayProduit = true;
     })
-    this.displayProduit = true;
   }
 
 }

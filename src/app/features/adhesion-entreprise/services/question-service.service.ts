@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { QuestionAvantVente } from '../models/questionAvVente';
+import { QuestionAvantVenteModel } from '../models/questionAvVenteModel';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,10 @@ import { QuestionAvantVente } from '../models/questionAvVente';
 export class QuestionServiceService {
 
   constructor(private http: HttpClient) { }
-  getAllQuestions(): Observable<QuestionAvantVente>{
+  getAllQuestions(): Observable<QuestionAvantVenteModel>{
     console.log("enter QuestionServiceService");
     const url ="http://localhost:8080/question//getAllQuestions";
-    return this.http.get<QuestionAvantVente>(url);
+    return this.http.get<QuestionAvantVenteModel>(url);
 
     
 

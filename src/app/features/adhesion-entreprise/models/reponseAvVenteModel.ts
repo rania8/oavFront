@@ -1,4 +1,4 @@
-export class ReponseAvantVente{
+export class ReponseAvantVenteModel{
 idRepAv:number;
 codeRepAv:number;
 enonce:string;

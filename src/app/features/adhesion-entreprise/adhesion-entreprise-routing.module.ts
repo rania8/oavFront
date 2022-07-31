@@ -6,15 +6,23 @@ import { SiretValidationComponent } from './components/siret-validation/siret-va
 import { ProduitComponent } from './components/produit/produit.component';
 import { QuestionAvantVenteComponent } from './components/question-avant-vente/question-avant-vente.component';
 const routes: Routes = [
-{path:"",
-component:AccueilComponent},
+  {
+    path: "",
+    component: AccueilComponent
+  },
 
-{path:"siret",
-component:SiretValidationComponent},
-{path:"produits",
-component:ProduitComponent},
-{path:"questions",
-component:QuestionAvantVenteComponent},
+  {
+    path: "siret",
+    component: SiretValidationComponent
+  },
+  {
+    path: "produits",
+    component: ProduitComponent
+  },
+  {
+    path: "questions",
+    component: QuestionAvantVenteComponent
+  },
 
 
 ];

@@ -12,16 +12,16 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AccueilComponent,
-   
+
     SiretValidationComponent,
     ProduitComponent,
     QuestionAvantVenteComponent,
     NavBarComponent,
-    
+
   ],
   imports: [
     CommonModule,
-    AdhesionEntrepriseRoutingModule,FormsModule
+    AdhesionEntrepriseRoutingModule, FormsModule
   ]
 })
 export class AdhesionEntrepriseModule { }

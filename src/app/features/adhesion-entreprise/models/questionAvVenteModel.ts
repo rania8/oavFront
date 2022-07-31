@@ -1,10 +1,10 @@
-import { ReponseAvantVente } from "./reponseAvVente";
+import { ReponseAvantVenteModel } from "./reponseAvVenteModel";
 
-export class QuestionAvantVente{
+export class QuestionAvantVenteModel{
     idQuestion:number;
     codeQuestion:number;
     enonce : string;
-    reponses:ReponseAvantVente[];
+    reponses:ReponseAvantVenteModel[];
 
     constructor(){
         this.idQuestion=0;

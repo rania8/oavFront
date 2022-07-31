@@ -10,8 +10,9 @@
             </label>
             <input type="text" class="form-control rounded-pill" placeholder="Numéro SIRET" [(ngModel)]="siretValue"
               id="inputSiret" name="inputSiret">
-              <span class="help-block text-danger" *ngIf="showEnterSIRETError">Entrer votre SIRET</span>
-              <span class="help-block text-danger" *ngIf="showInvalideSIRETError">Entrer les 14 chiffres du SIRET correctement</span>
+            <span class="help-block text-danger" *ngIf="showEnterSIRETError">Entrer votre SIRET</span>
+            <span class="help-block text-danger" *ngIf="showInvalideSIRETError">Entrer les 14 chiffres du SIRET
+              correctement</span>
 
           </div>
         </div>
@@ -64,8 +65,8 @@
       <div class="row ">
         <div class="col  align-self-end">
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary rounded-pill " *ngIf="displaySuivantBtn" 
-            (click)="onClickBtnValideInfo()">valider</button>
+            <button type="submit" class="btn btn-primary rounded-pill " *ngIf="displaySuivantBtn"
+              (click)="onClickBtnValideInfo()">valider</button>
           </div>
         </div>
       </div>
@@ -75,7 +76,7 @@
 
     </div>
   </form>
-
-  <app-produit id="produitComponent" *ngIf="displayProduit"></app-produit>
+entrepriseCreated
+  <app-produit id="produitComponent" [entrepriseCreated] ="entreprise" *ngIf="displayProduit"></app-produit>
 
 </div>

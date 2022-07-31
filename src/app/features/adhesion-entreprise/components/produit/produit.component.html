@@ -1,5 +1,5 @@
 <div class="container">
-  <form class=" justify-content-center"  >
+  <form class=" justify-content-center"  #form="ngForm" (ngSubmit)="checkedBox(form.value)">
     <div class="row ">
       <label for="Informations" class="text-danger ">
         <p class="font-weight-bold"><strong>Nos Produits</strong></p>
@@ -7,12 +7,17 @@
     </div>
     <div class="row ">
       <div class="col-5">
-        <input class="form-check-input" type="checkbox" value=""  onclick="">
-        <label class="form-check-label" for="flexCheckSante" id="flexCheckSante"name="flexCheckSante">Assurance Santé</label>
+        <input #checkboxSante  type="checkbox" [ngModel]="false" id="checkboxSante" name="checkboxSante">
+        <label class="form-check-label" for="flexCheckSante" id="labelCheckSante"name="labelCheckSante">Assurance Santé</label>
       </div>
       <div class="col-5">
-        <input class="form-check-input" type="checkbox" value="" onclick=""   >
-        <label class="form-check-label" for="flexCheckPrevoyance"  id="flexCheckPrevoyance" name="flexCheckPrevoyance">Assurance Prévoyance </label>
+        <input #checkboxPrevoyance  type="checkbox" [ngModel]="false" id="checkboxPrevoyance" name="checkboxPrevoyance">
+        <label class="form-check-label" for="flexCheckPrevoyance"  id="labelCheckPrevoyance" name="labelCheckPrevoyance">Assurance Prévoyance </label>
+      </div>
+      <div class="col  align-self-end">
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary rounded-pill "  >valider</button>
+        </div>
       </div>
     </div>
     <div class="row ">

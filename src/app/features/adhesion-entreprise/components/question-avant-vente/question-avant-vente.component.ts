@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionAvantVenteModel } from '../../models/questionAvVenteModel';
 import { QuestionServiceService } from '../../services/question-service.service';
 
 @Component({
@@ -8,10 +9,13 @@ import { QuestionServiceService } from '../../services/question-service.service'
 })
 export class QuestionAvantVenteComponent implements OnInit {
 
+  questions: QuestionAvantVenteModel [] = [];
+  selectedQuestion: QuestionAvantVenteModel = new QuestionAvantVenteModel();
+
+
   constructor(private questionService:QuestionServiceService) { }
 
   ngOnInit(): void {
-    console.log("question component works");
 
   }
 

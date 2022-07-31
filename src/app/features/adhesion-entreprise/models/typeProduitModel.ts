@@ -1,4 +1,4 @@
-export class TypeProduit{
+export class TypeProduitModel{
     idTypeProd:number;
     libelle:string;
 

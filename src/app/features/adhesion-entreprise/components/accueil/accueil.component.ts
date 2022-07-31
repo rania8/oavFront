@@ -11,7 +11,6 @@ export class AccueilComponent implements OnInit {
   constructor( private router:Router) { }
 
   ngOnInit(): void {
-    console.log("accueil component works");
   }
   onClickBtnCommencezIci(){
     this.router.navigateByUrl('siret');
