@@ -1,6 +1,9 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { EntrepriseModel } from '../../models/entrepriseModel';
+import { EntrepriseQuestionIdModel } from '../../models/entrepriseQuestionIdModel';
+import { EntrepriseQuestionModel } from '../../models/entrepriseQuestionModel';
 import { QuestionAvantVenteModel } from '../../models/questionAvVenteModel';
+import { EntrepriseQuestionServiceService } from '../../services/entreprise-question-service.service';
 import { QuestionServiceService } from '../../services/question-service.service';
 
 @Component({
@@ -12,12 +15,8 @@ export class QuestionAvantVenteComponent implements OnInit {
   @Input("entrepriseCreated") entreprise: EntrepriseModel;
   listQuestions: QuestionAvantVenteModel[];
   taille: number;
-  constructor(private questionService: QuestionServiceService) { }
 
-  ngOnChanges(changes: SimpleChanges) {
-    //i want to detect changes from a variable entreprise decorated by @Input
-    console.log(changes)
-  }
+  constructor(private questionService: QuestionServiceService, private questionEntrepriseService: EntrepriseQuestionServiceService) { }
 
   ngOnInit(): void {
     this.questionService.getAllQuestions().subscribe(rslt => {
@@ -25,6 +24,29 @@ export class QuestionAvantVenteComponent implements OnInit {
       this.taille = rslt.length;
     });
   }
-  
+
+
+  valider() {
+    console.log(this.listQuestions);
+    let listofEntrepriseQuestion: EntrepriseQuestionModel[] = [];
+
+    for (let i = 0; i < this.taille; i++) {
+      let entrepriseQuestion: EntrepriseQuestionModel = new EntrepriseQuestionModel();
+      for (let j = 0; j < this.listQuestions[i].reponses.length; j++) {
+        if (this.listQuestions[i].reponses[j].checked) {
+          entrepriseQuestion.idReponse = this.listQuestions[i].reponses[j].idRepAv;
+          entrepriseQuestion.idQuestion = this.listQuestions[i].idQuestion;
+          entrepriseQuestion.idEntreprise = this.entreprise.idEntreprise;
+          listofEntrepriseQuestion.push(entrepriseQuestion)
+
+        }
+      }
+
+    }
+
+    this.questionEntrepriseService.saveResponses(listofEntrepriseQuestion).subscribe(rslt => {
+    });
+
+  }
 
 }

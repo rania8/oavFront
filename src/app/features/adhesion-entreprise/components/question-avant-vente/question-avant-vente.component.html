@@ -15,7 +15,8 @@
                 <div *ngFor="let question of listQuestions; ">
                     <span>{{question.enonce}}</span>
                     <div *ngFor="let reponse of question.reponses; ">
-                        <input type="checkbox">
+                        <input  type="checkbox" [(ngModel)]="reponse.checked" id="checkboxResponse"
+                            name="checkboxResponse">
                         <span>{{reponse.enonce}}</span>
                     </div>
                 </div>
@@ -23,7 +24,7 @@
         </div>
         <div class="col  align-self-end">
             <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary rounded-pill ">valider</button>
+                <button type="submit" class="btn btn-primary rounded-pill " (click)="valider()">valider</button>
             </div>
         </div>
         <div class="row ">
