@@ -30,19 +30,31 @@ export class QuestionAvantVenteComponent implements OnInit {
     console.log(this.listQuestions);
     let listofEntrepriseQuestion: EntrepriseQuestionModel[] = [];
 
-    for (let i = 0; i < this.taille; i++) {
+    // for (let i = 0; i < this.taille; i++) {
+    //   let entrepriseQuestion: EntrepriseQuestionModel = new EntrepriseQuestionModel();
+    //   for (let j = 0; j < this.listQuestions[i].reponses.length; j++) {
+    //     if (this.listQuestions[i].reponses[j].checked) {
+    //       entrepriseQuestion.idReponse = this.listQuestions[i].reponses[j].idRepAv;
+    //       entrepriseQuestion.idQuestion = this.listQuestions[i].idQuestion;
+    //       entrepriseQuestion.idEntreprise = this.entreprise.idEntreprise;
+    //       listofEntrepriseQuestion.push(entrepriseQuestion)
+    //     }
+    //   }
+    // }
+
+    this.listQuestions.forEach(eltEntrepriseQuestion=>{
       let entrepriseQuestion: EntrepriseQuestionModel = new EntrepriseQuestionModel();
-      for (let j = 0; j < this.listQuestions[i].reponses.length; j++) {
-        if (this.listQuestions[i].reponses[j].checked) {
-          entrepriseQuestion.idReponse = this.listQuestions[i].reponses[j].idRepAv;
-          entrepriseQuestion.idQuestion = this.listQuestions[i].idQuestion;
+      eltEntrepriseQuestion.reponses.forEach(elt=>{
+        if (elt.checked) {
+          entrepriseQuestion.idReponse = elt.idRepAv;
+          entrepriseQuestion.idQuestion = eltEntrepriseQuestion.idQuestion;
           entrepriseQuestion.idEntreprise = this.entreprise.idEntreprise;
           listofEntrepriseQuestion.push(entrepriseQuestion)
-
         }
-      }
 
-    }
+      })
+    })
+
 
     this.questionEntrepriseService.saveResponses(listofEntrepriseQuestion).subscribe(rslt => {
     });
