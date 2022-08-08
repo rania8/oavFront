@@ -16,9 +16,8 @@ export class EntrepriseModel {
     codePostal: string;
     mail: string;
     tel: number;
-
     productsSelected: ProduitModel[];
-    // questionsResponded:QuestionAvantVenteModel[];
+    questionsResponded: QuestionAvantVenteModel[];
 
 
     constructor() {
@@ -36,6 +35,6 @@ export class EntrepriseModel {
         this.tel = 0;
         this.codePostal = "";
         this.productsSelected = [];
-        //  this.questionsResponded = null;
+        this.questionsResponded = [];
     }
 }

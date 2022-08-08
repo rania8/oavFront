@@ -9,10 +9,10 @@ import { QuestionAvantVenteModel } from '../models/questionAvVenteModel';
 export class QuestionServiceService {
 
   constructor(private http: HttpClient) { }
-  getAllQuestions(): Observable<QuestionAvantVenteModel>{
+  getAllQuestions(): Observable<QuestionAvantVenteModel[]>{
     console.log("enter QuestionServiceService");
     const url ="http://localhost:8080/question//getAllQuestions";
-    return this.http.get<QuestionAvantVenteModel>(url);
+    return this.http.get<QuestionAvantVenteModel[]>(url);
 
     
 

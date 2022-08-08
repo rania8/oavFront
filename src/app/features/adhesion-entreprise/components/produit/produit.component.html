@@ -24,5 +24,5 @@
       <div class="row m-5 "><span class="border-bottom"></span></div>
     </div>
   </form>
-  <app-question-avant-vente id="questionComponent"></app-question-avant-vente>
+  <app-question-avant-vente id="questionComponent" [entrepriseCreated] ="entreprise" *ngIf="showQuestions"></app-question-avant-vente>
 </div>

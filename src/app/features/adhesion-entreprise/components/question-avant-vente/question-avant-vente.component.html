@@ -1,16 +1,33 @@
 <div class="container">
-    <form class=" justify-content-center">
-        <div class="row " >
+    <form class=" justify-content-center" >
+        <div class="row ">
             <label for="Question" class="text-danger ">
                 <p class="font-weight-bold"><strong>Personalisez Votre Offre</strong></p>
             </label>
         </div>
         <div class="row ">
-            <label for="" class="text-secondary text-muted" >Plus vous répondez, plus vous en profitez
+            <label for="" class="text-secondary text-muted">Plus vous répondez, plus vous en profitez
             </label>
-          </div>
-          <div class="row " style="border:text-muted">
-            
-          </div>
+        </div>
+        <div class="row "> </div>
+        <div class="row ">
+            <div>
+                <div *ngFor="let question of listQuestions; ">
+                    <span>{{question.enonce}}</span>
+                    <div *ngFor="let reponse of question.reponses; ">
+                        <input type="checkbox">
+                        <span>{{reponse.enonce}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col  align-self-end">
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary rounded-pill ">valider</button>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="row m-5 "><span class="border-bottom"></span></div>
+        </div>
     </form>
 </div>
