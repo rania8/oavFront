@@ -13,6 +13,7 @@ import { QuestionServiceService } from '../../services/question-service.service'
 })
 export class QuestionAvantVenteComponent implements OnInit {
   @Input("entrepriseCreated") entreprise: EntrepriseModel;
+  showOffre: boolean = false;
   listQuestions: QuestionAvantVenteModel[];
   taille: number;
 
@@ -24,7 +25,6 @@ export class QuestionAvantVenteComponent implements OnInit {
       this.taille = rslt.length;
     });
   }
-
 
   valider() {
     console.log(this.listQuestions);
@@ -42,9 +42,9 @@ export class QuestionAvantVenteComponent implements OnInit {
     //   }
     // }
 
-    this.listQuestions.forEach(eltEntrepriseQuestion=>{
+    this.listQuestions.forEach(eltEntrepriseQuestion => {
       let entrepriseQuestion: EntrepriseQuestionModel = new EntrepriseQuestionModel();
-      eltEntrepriseQuestion.reponses.forEach(elt=>{
+      eltEntrepriseQuestion.reponses.forEach(elt => {
         if (elt.checked) {
           entrepriseQuestion.idReponse = elt.idRepAv;
           entrepriseQuestion.idQuestion = eltEntrepriseQuestion.idQuestion;
@@ -54,11 +54,9 @@ export class QuestionAvantVenteComponent implements OnInit {
 
       })
     })
-
-
     this.questionEntrepriseService.saveResponses(listofEntrepriseQuestion).subscribe(rslt => {
     });
-
+    this.showOffre = true;
   }
 
 }

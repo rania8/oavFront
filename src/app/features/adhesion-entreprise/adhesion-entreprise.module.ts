@@ -7,8 +7,8 @@ import { ProduitComponent } from './components/produit/produit.component';
 import { FormsModule } from '@angular/forms';
 import { QuestionAvantVenteComponent } from './components/question-avant-vente/question-avant-vente.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-
-
+import { OffreComponent } from './components/offre/offre.component';
+import{AccordionModule}from'ngx-bootstrap/accordion'
 @NgModule({
   declarations: [
     AccueilComponent,
@@ -17,11 +17,12 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     ProduitComponent,
     QuestionAvantVenteComponent,
     NavBarComponent,
+    OffreComponent,
 
   ],
   imports: [
     CommonModule,
-    AdhesionEntrepriseRoutingModule, FormsModule
+    AdhesionEntrepriseRoutingModule, FormsModule,AccordionModule,
   ]
 })
 export class AdhesionEntrepriseModule { }

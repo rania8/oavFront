@@ -35,9 +35,6 @@ export class SiretServiceService {
       codePostal: entreprise.codePostal,
     }
     return this.http.post<EntrepriseModel>(url, entreprise, { headers: httpHeader });
-
-
-
   }
   updateEntreprise(entreprise: EntrepriseModel): Observable<EntrepriseModel> {
     console.log("enter updateEntreprise");

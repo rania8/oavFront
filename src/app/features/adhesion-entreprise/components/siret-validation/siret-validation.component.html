@@ -10,10 +10,10 @@
             </label>
             <input type="text" class="form-control rounded-pill" placeholder="Numéro SIRET" [(ngModel)]="siretValue"
               id="inputSiret" name="inputSiret">
+            <!-- 
             <span class="help-block text-danger" *ngIf="showEnterSIRETError">Entrer votre SIRET</span>
             <span class="help-block text-danger" *ngIf="showInvalideSIRETError">Entrer les 14 chiffres du SIRET
-              correctement</span>
-
+              correctement</span> -->
           </div>
         </div>
         <div class="col align-self-end  ">
@@ -23,8 +23,11 @@
           </div>
         </div>
       </div>
+      <div class="alert alert-danger mt-2" role="alert" *ngIf="showEnterSIRETError">Entrer votre SIRET</div>
+      <div class="alert alert-danger mt-2" role="alert" *ngIf="showInvalideSIRETError">Entrer les 14 chiffres du SIRET
+        correctement</div>
       <div class="row ">
-        <div class="row m-5 "><span class="border-bottom"></span></div>
+        <div class="row mt-5 mb-5"><span class="border-bottom"></span></div>
       </div>
       <div class="row ">
         <label for="Informations" class="text-danger">
@@ -38,27 +41,26 @@
       <div class="" id="divInformations" *ngIf="displayInfo">
         <div class="row ">
           <div class="col-5">
-            <label for="inputRaisonSociale"><i>Raison Sociale</i></label>
+            <label for="inputRaisonSociale">Raison Sociale</label>
             <input type="text" class="form-control rounded-pill" name="inputRaisonSociale" id="inputRaisonSociale"
               placeholder="RaisonSociale" [(ngModel)]="etablissement.uniteLegale.denominationUniteLegale">
           </div>
 
           <div class="col-5">
-            <label for="inputAPE"><i>APE</i></label>
+            <label for="inputAPE">APE</label>
             <input type="text" class="form-control rounded-pill" name="inputAPE" id="inputAPE" placeholder="APE"
               [(ngModel)]="etablissement.uniteLegale.activitePrincipaleUniteLegale">
           </div>
-          <div class="row ">
-            <div class="col-5">
-              <label for="inputAddress"><i>Adresse</i></label>
-              <input type="text" class="form-control rounded-pill" name="inputAddress" id="inputAddress"
-                placeholder="num rue nom rue ville" [(ngModel)]="etablissement.adresseEtablissement.totaleAdresse">
-            </div>
-            <div class="col-5">
-              <label for="inputCodePostale"><i>Code Postale</i></label>
-              <input type="text" class="form-control rounded-pill" name="inputCodePostale" id="inputCodePostale"
-                placeholder="" [(ngModel)]="etablissement.adresseEtablissement.codePostalEtablissement">
-            </div>
+
+          <div class="col-5">
+            <label for="inputAddress">Adresse</label>
+            <input type="text" class="form-control rounded-pill" name="inputAddress" id="inputAddress"
+              placeholder="num rue nom rue ville" [(ngModel)]="etablissement.adresseEtablissement.totaleAdresse">
+          </div>
+          <div class="col-5">
+            <label for="inputCodePostale">Code Postale</label>
+            <input type="text" class="form-control rounded-pill" name="inputCodePostale" id="inputCodePostale"
+              placeholder="" [(ngModel)]="etablissement.adresseEtablissement.codePostalEtablissement">
           </div>
         </div>
       </div>
@@ -71,11 +73,11 @@
         </div>
       </div>
       <div class="row ">
-        <div class="row m-5 "><span class="border-bottom"></span></div>
+        <div class="row mt-5 mb-5 "><span class="border-bottom"></span></div>
       </div>
 
     </div>
   </form>
-  <app-produit id="produitComponent" [entrepriseCreated] ="entreprise" *ngIf="displayProduit"></app-produit>
+  <app-produit id="produitComponent" [entrepriseCreated]="entreprise" *ngIf="displayProduit"></app-produit>
 
 </div>

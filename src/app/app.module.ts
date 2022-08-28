@@ -11,6 +11,8 @@ import { NgxBootstrapIconsModule} from 'ngx-bootstrap-icons';
 import { alarm, penFill } from 'ngx-bootstrap-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -24,7 +26,7 @@ const icons = {
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,FormsModule,
-    NgxBootstrapIconsModule.pick(icons)
+    NgxBootstrapIconsModule.pick(icons),BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

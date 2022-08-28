@@ -5,6 +5,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { SiretValidationComponent } from './components/siret-validation/siret-validation.component';
 import { ProduitComponent } from './components/produit/produit.component';
 import { QuestionAvantVenteComponent } from './components/question-avant-vente/question-avant-vente.component';
+import { OffreComponent } from './components/offre/offre.component';
 const routes: Routes = [
   {
     path: "",
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: "questions",
     component: QuestionAvantVenteComponent
   },
+  {
+    path: "offres",
+    component: OffreComponent
+  }
 
 
 ];

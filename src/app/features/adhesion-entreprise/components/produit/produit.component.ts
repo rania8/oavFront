@@ -21,6 +21,7 @@ export class ProduitComponent implements OnInit {
   produitPrevoyance: ProduitModel = new ProduitModel();
   taille: number;
   showQuestions: boolean = false;
+  displayNoProduct: boolean = false;
 
   constructor(private produitService: ProduitServiceService, private siretService: SiretServiceService) { }
 
@@ -49,6 +50,11 @@ export class ProduitComponent implements OnInit {
         // this.produitPrevoyance.typeProduit.libelle = this.listProduits[i].typeProduit.libelle;
       }
     }
+    if (santechecked==false&&pervoyanceChecked==false){
+      this.displayNoProduct=true;
+    }
+    else{
+
     if (santechecked) {
       //on alimente le produit dans produitSelected
       this.entreprise.productsSelected.push(this.produitSante);
@@ -59,6 +65,9 @@ export class ProduitComponent implements OnInit {
       // this.entreprise.productsSelected[tailleListProd] = this.produitPrevoyance;
     }
     this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => { });
+    this.displayNoProduct=false;
+
     this.showQuestions = true;
+  }
   }
 }
