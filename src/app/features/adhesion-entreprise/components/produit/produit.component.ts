@@ -3,7 +3,7 @@ import { EntrepriseModel } from '../../models/entrepriseModel';
 import { ProduitModel } from '../../models/produitModel';
 import { ProduitServiceService } from '../../services/produit-service.service';
 import { QuestionServiceService } from '../../services/question-service.service';
-import { SiretServiceService } from '../../services/siret-service.service';
+import { SiretServiceService } from '../../services/entreprise-service.service';
 
 @Component({
   selector: 'app-produit',

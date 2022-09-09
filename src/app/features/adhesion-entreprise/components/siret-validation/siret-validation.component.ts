@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SiretServiceService } from '../../services/siret-service.service';
+import { SiretServiceService } from '../../services/entreprise-service.service';
 import { EntrepriseINSEEModel } from '../../models/entrepriseINSEEModel';
 import { ReponseEtablissementModel } from '../../models/responseEtablissementModel';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { EntrepriseModel } from '../../models/entrepriseModel';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-siret-validation',
@@ -26,7 +27,7 @@ export class SiretValidationComponent implements OnInit {
   public entreprise: EntrepriseModel = new EntrepriseModel();
 
 
-  constructor(private siretService: SiretServiceService) {
+  constructor(private siretService: SiretServiceService,private notificationsService: NotificationsService) {
 
   }
 
@@ -72,7 +73,6 @@ export class SiretValidationComponent implements OnInit {
 
         ///////////
         this.siretService.addEntreprise(this.entreprise).subscribe(rslt => {
-
           this.entreprise.siret = rslt.siret;
           this.entreprise.ape = rslt.ape;
           this.entreprise.raisonSociale = rslt.raisonSociale;
@@ -118,6 +118,8 @@ export class SiretValidationComponent implements OnInit {
 
 
     this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => {
+      this.notificationsService.success("Informations prises en compte");
+
       this.entreprise = rslt;
       this.entreprise.totaleAdresse = rslt.numeroVoieEtablissement + "" + rslt.typeVoieEtablissement + "" + rslt.libelleVoieEtablissement + rslt.libelleCommuneEtablissement; this.displayProduit = true;
       this.displayProduit = true;

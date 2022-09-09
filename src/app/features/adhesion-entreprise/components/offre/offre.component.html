@@ -1,22 +1,26 @@
 <div class="container">
 
+ 
     <accordion>
-        <accordion-group heading="Static Header, initially expanded"
-                         [panelClass]="customClass"
-                         [isOpen]="isFirstOpen">
-          This content is straight in the template.
+        <accordion-group heading="Garanties" panelClass="customClass">
+            <accordion-group   heading="optique"  panelClass="customClass2">
+                accordion 1-1
+            </accordion-group>
+            <accordion-group   heading="dentaire" panelClass="customClass2">
+                accordion 1-2
+            </accordion-group>
         </accordion-group>
-        <accordion-group heading="Content 1">
-          <p>accordion 1</p>
+       
+        <accordion-group heading="Structure de cotisation" panelClass="customClass">
+            <accordion-group   heading="accordion 2-1" panelClass="customClass2">
+                accordion 2-1
+            </accordion-group>
         </accordion-group>
-        <accordion-group heading="Content 2" panelClass="customClass">
-          <p>accordion 2</p>
-        </accordion-group>
-      </accordion>
+    </accordion>
 
-
-
-    
     <button type="submit" class="btn btn-primary rounded-pill " (click)="onClickBtnTarifs()">tarifs</button>
+
+
+
 
 </div>

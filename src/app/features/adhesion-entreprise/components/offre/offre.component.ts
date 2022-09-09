@@ -12,6 +12,7 @@ export class OffreComponent implements OnInit {
   tarifParamsModel:TarifsParamsModel=new TarifsParamsModel;
   tarifsRetour:TarifsRetourModel;
   customClass :string= 'customClass';
+
   isFirstOpen :boolean= true;
   constructor(private tarificationService: TarificationServiceService) { }
 

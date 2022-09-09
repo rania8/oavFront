@@ -1,4 +1,4 @@
-import { SiretServiceService } from "../services/siret-service.service";
+import { SiretServiceService } from "../services/entreprise-service.service";
 import { AdresseModel } from "./adresseModel";
 import { UniteLegaleModel } from "./uniteLegaleModel";
 export class ReponseEtablissementModel{

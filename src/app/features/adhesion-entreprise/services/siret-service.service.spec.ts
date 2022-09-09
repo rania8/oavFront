@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SiretServiceService } from './siret-service.service';
+import { SiretServiceService } from './entreprise-service.service';
 
 describe('SiretServiceService', () => {
   let service: SiretServiceService;

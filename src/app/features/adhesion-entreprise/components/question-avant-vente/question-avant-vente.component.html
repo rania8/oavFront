@@ -14,11 +14,11 @@
             <div>
                 <div *ngFor="let question of listQuestions; ">
                     <p><br></p>
-                    <span>{{question.enonce}} </span>
+                    <span>{{ question.enonce}} </span>
                     <div *ngFor="let reponse of question.reponses; ">
                         <input  type="checkbox" [(ngModel)]="reponse.checked" id="checkboxResponse"
                             name="checkboxResponse">
-                        <span>{{reponse.enonce}}</span>
+                        <span>{{ reponse.enonce}}</span>
                     </div>
                 </div>
             </div>

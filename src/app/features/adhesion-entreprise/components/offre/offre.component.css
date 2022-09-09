@@ -1,6 +1,7 @@
 
 .customClass{
-    background-color: aqua;
-    border: 5px;
+    border: none;
+    border-radius: 50px;
 
 }
+
