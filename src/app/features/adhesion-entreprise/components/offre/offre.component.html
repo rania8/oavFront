@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container pb-5" *ngIf="showInterface">
     <table style="width: 100%;">
         <tr class="d-flex">
-            <td class="col-3 text-center"
-                style=" border: none ; ">
-                <ngx-select style=" position: relative; top: 70%;" [items]="produits" [(ngModel)]="selectedProduct"></ngx-select>
+            <td class="col-3 text-center" style=" border: none ; ">
+                <ngx-select style=" position: relative; top: 70%;" [items]="produits" [(ngModel)]="selectedProduct">
+                </ngx-select>
             </td>
             <td class="col-3 text-center"
                 style="border-right: 0.5px groove #A9A9A9;border-left: 0.5px groove #A9A9A9; border-top: 0.5px groove #A9A9A9;border-top-left-radius: 20%;border-top-right-radius: 20%;">
@@ -29,7 +29,7 @@
         </tr>
     </table>
     <accordion>
-        <accordion-group heading="Garanties" panelClass="customClass">
+        <accordion-group heading="Garanties" panelClass="customClass" [isOpen]="true">
             <accordion-group *ngFor="let garantie of garanties" heading="{{garantie}}" panelClass="customClass2">
                 <table style="width: 100%;">
                     <tr class="d-flex">
@@ -45,8 +45,8 @@
 
         </accordion-group>
 
-        <accordion-group heading="Structure de cotisation" panelClass="customClass">
-            <accordion-group panelClass="customClass2">
+        <accordion-group heading="Structure de cotisation" panelClass="customClass"  [isOpen]="true">
+            <accordion-group panelClass="customClass2" [isOpen]="true">
 
                 <table class="table table-striped" style="width: 100%; margin-bottom :0px">
                     <tbody>
@@ -110,22 +110,30 @@
     </accordion>
     <table style="width: 100%;">
         <tr class="d-flex">
-            <td class="col-3 text-center"
-                style=" border: none ; ">
-                
+            <td class="col-3 text-center" style=" border: none ; ">
+
             </td>
             <td class="col-3 text-center"
                 style="border-right: 0.5px groove #A9A9A9;border-left: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
-                <button class="btn btn-primary" (click)="selectOffre1()">Choisir</button>
+                <button *ngIf="showOffre1" class="btn btn-primary" (click)="selectOffre1()">Choisir</button>
+                <button *ngIf="!showOffre1" class="btn btn-danger" (click)="unselectOffre1()">supprimer</button>
             </td>
             <td class="col-3 text-center"
                 style="border-right: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
-                <button class="btn btn-primary"(click)="selectOffre2()">Choisir</button>
+                <button *ngIf="showOffre2" class="btn btn-primary" (click)="selectOffre2()">Choisir</button>
+                <button *ngIf="!showOffre2" class="btn btn-danger" (click)="unselectOffre2()">supprimer</button>
             </td>
             <td class="col-3 text-center"
                 style="border-right: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9; border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
-                <button class="btn btn-primary" (click)="selectOffre3()" >Choisir</button>
+                <button *ngIf="showOffre3" class="btn btn-primary" (click)="selectOffre3()">Choisir</button>
+                <button *ngIf="!showOffre3" class="btn btn-danger" (click)="unselectOffre3()">supprimer</button>
             </td>
         </tr>
     </table>
+
+    <div class="row justify-content-end pt-5">
+        <div class="col-8">   </div>
+        <div class="col-4"> <button class="btn btn-primary" style="float: right;" (click)="goToRecap()">Voir le récapitulatif</button> </div>
+        
+    </div>
 </div>

@@ -6,6 +6,7 @@ import { SiretValidationComponent } from './components/siret-validation/siret-va
 import { ProduitComponent } from './components/produit/produit.component';
 import { QuestionAvantVenteComponent } from './components/question-avant-vente/question-avant-vente.component';
 import { OffreComponent } from './components/offre/offre.component';
+import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
 const routes: Routes = [
   {
     path: "",
@@ -27,7 +28,8 @@ const routes: Routes = [
   {
     path: "offres",
     component: OffreComponent
-  }
+  },
+  { path: 'recap', component: RecapitulatifComponent }
 
 
 ];

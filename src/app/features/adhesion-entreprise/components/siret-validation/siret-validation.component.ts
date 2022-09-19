@@ -27,7 +27,7 @@ export class SiretValidationComponent implements OnInit {
   public entreprise: EntrepriseModel = new EntrepriseModel();
 
 
-  constructor(private siretService: SiretServiceService,private notificationsService: NotificationsService) {
+  constructor(private siretService: SiretServiceService, private notificationsService: NotificationsService) {
 
   }
 
@@ -118,7 +118,7 @@ export class SiretValidationComponent implements OnInit {
 
 
     this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => {
-      this.notificationsService.success("Mise à jour avec succès");
+      this.notificationsService.success("Mise à jour effectuée avec succès");
 
       this.entreprise = rslt;
       this.entreprise.totaleAdresse = rslt.numeroVoieEtablissement + "" + rslt.typeVoieEtablissement + "" + rslt.libelleVoieEtablissement + rslt.libelleCommuneEtablissement; this.displayProduit = true;

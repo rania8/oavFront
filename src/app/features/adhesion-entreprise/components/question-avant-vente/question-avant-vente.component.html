@@ -18,7 +18,7 @@
                     <div *ngFor="let reponse of question.reponses; ">
                         <input  type="checkbox" [(ngModel)]="reponse.checked" id="checkboxResponse"
                             name="checkboxResponse">
-                        <span>{{ reponse.enonce}}</span>
+                        <span class=" ml-3">{{ reponse.enonce}}</span>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,6 @@
             <div class="row mt-5 mb-5 "><span class="border-bottom"></span></div>
         </div>
     </form>
-    <app-offre id="offreComponent"  [idEntreprise]="entreprise.idEntreprise" *ngIf="showOffre">
+    <app-offre id="offreComponent"  [entreprise]="entreprise" *ngIf="showOffre">
     </app-offre>
 </div>

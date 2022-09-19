@@ -1,0 +1,48 @@
+<div class="container" style="text-align: -webkit-center" id="component1">
+    <div class="row " style="padding-top: 10%;">
+      <label class="text-danger ">
+        <p class="font-weight-bold"><strong>Ecran Récapitulatif</strong></p>
+      </label>
+    </div>
+   
+<div class="col col-lg-12" id="recap" style="text-align: -webkit-center;padding-top: 5%;">
+  <h3 class="title-recap">L'entreprise <span>{{nomentreprise}}</span> à choisie les offres suivants :</h3>
+  <div class="div-title">
+  <div *ngFor="let pack of packs; let i = index" class="pack-recap">
+    <div class="row" style="border: solid 2px dodgerblue">
+      <div class="col col-lg-05 pack-number">{{i + 1}}</div>
+      <div class="col col-lg-12">
+      <table>
+        <tr class="tr-style">
+          <td ><span>Produit :</span></td>
+          <td class="td-recap">{{pack.libelleProduit}}</td>
+        </tr>
+        <tr  class="tr-style">
+          <td ><span>Offre :</span></td>
+          <td class="td-recap">{{pack.libelleOffre}}</td>
+        </tr>
+        <tr  class="tr-style">
+          <td ><span>Tarif :</span></td>
+          <td class="td-recap">{{pack.tarif}}€</td>
+        </tr>
+        <tr  class="tr-style">
+          <td  ><span>Collège :</span></td>
+          <td class="td-recap">{{pack.libelleCOllege}}</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col col-lg-8" style="margin: 20px">
+  <div class="row">
+    <div class="col col-lg-6">
+    
+    </div>
+    <div class="col col-lg-6">
+      <button class="btn btn-primary" style="width: 95%"  >Passerà la signature</button>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

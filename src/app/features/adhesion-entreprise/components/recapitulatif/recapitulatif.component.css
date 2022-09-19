@@ -1,0 +1,44 @@
+.td-recap {
+ padding-left: 2%;
+ width: 80%;
+}
+
+.pack-recap {
+  width: 70%;
+  padding: 2px;
+  margin: 20px 0px 20px 0px;
+  border: solid 3px dodgerblue;
+}
+
+.title-recap {
+  margin-bottom: -13px;
+  backface-visibility: hidden;
+  background: white;
+  width: fit-content;
+}
+
+.col-lg-05 {
+  flex: 0 0 auto;
+  width: 4.333333%;
+}
+
+.pack-number {
+  position: absolute;
+  font-size: 3.6em;
+  font-family: fantasy;
+  font-style: oblique;
+  text-align: center;
+  color: #aeaeae40;
+}
+.tr-style{
+  width: 100%;
+}
+.div-title {
+  border: solid 1px;
+  width: 85%;
+  padding: 16px 0px 10px 0px;
+}
+
+span {
+  font-weight: bold;
+}

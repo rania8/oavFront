@@ -10,6 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OffreComponent } from './components/offre/offre.component';
 import{AccordionModule}from'ngx-bootstrap/accordion'
 import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
+import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
 const customSelectOptions : INgxSelectOptions = {
   optionValueField: 'id',
   optionTextField: 'text',
@@ -22,7 +23,7 @@ const customSelectOptions : INgxSelectOptions = {
 @NgModule({
   declarations: [
     AccueilComponent,
-
+    RecapitulatifComponent,
     SiretValidationComponent,
     ProduitComponent,
     QuestionAvantVenteComponent,

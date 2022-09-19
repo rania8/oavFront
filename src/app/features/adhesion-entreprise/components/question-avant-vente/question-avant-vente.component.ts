@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { NotificationsService } from 'angular2-notifications';
 import { EntrepriseModel } from '../../models/entrepriseModel';
 import { EntrepriseQuestionIdModel } from '../../models/entrepriseQuestionIdModel';
 import { EntrepriseQuestionModel } from '../../models/entrepriseQuestionModel';
@@ -17,7 +18,8 @@ export class QuestionAvantVenteComponent implements OnInit {
   listQuestions: QuestionAvantVenteModel[];
   taille: number;
 
-  constructor(private questionService: QuestionServiceService, private questionEntrepriseService: EntrepriseQuestionServiceService) { }
+  constructor(private questionService: QuestionServiceService, private questionEntrepriseService: EntrepriseQuestionServiceService,  
+    private notificationsService: NotificationsService) { }
 
   ngOnInit(): void {
     this.questionService.getAllQuestions().subscribe(rslt => {
@@ -55,6 +57,7 @@ export class QuestionAvantVenteComponent implements OnInit {
       })
     })
     this.questionEntrepriseService.saveResponses(listofEntrepriseQuestion).subscribe(rslt => {
+      this.notificationsService.success("Sauvegarde effectué avec succès");
       this.showOffre = true;
     });
   

@@ -4,6 +4,7 @@ import { ProduitModel } from '../../models/produitModel';
 import { ProduitServiceService } from '../../services/produit-service.service';
 import { QuestionServiceService } from '../../services/question-service.service';
 import { SiretServiceService } from '../../services/entreprise-service.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-produit',
@@ -23,7 +24,7 @@ export class ProduitComponent implements OnInit {
   showQuestions: boolean = false;
   displayNoProduct: boolean = false;
 
-  constructor(private produitService: ProduitServiceService, private siretService: SiretServiceService) { }
+  constructor(private produitService: ProduitServiceService, private siretService: SiretServiceService,  private notificationsService: NotificationsService) { }
 
   ngOnInit(): void {
     this.produitService.getAllProducts().subscribe(rslt => {
@@ -64,7 +65,10 @@ export class ProduitComponent implements OnInit {
       // let tailleListProd = this.entreprise.productsSelected.length;
       // this.entreprise.productsSelected[tailleListProd] = this.produitPrevoyance;
     }
-    this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => { });
+    this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => { 
+
+      this.notificationsService.success("Sauvgarde effectué avec succès");
+    });
     this.displayNoProduct=false;
 
     this.showQuestions = true;
