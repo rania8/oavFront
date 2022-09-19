@@ -9,6 +9,16 @@ import { QuestionAvantVenteComponent } from './components/question-avant-vente/q
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OffreComponent } from './components/offre/offre.component';
 import{AccordionModule}from'ngx-bootstrap/accordion'
+import { INgxSelectOptions, NgxSelectModule } from 'ngx-select-ex';
+const customSelectOptions : INgxSelectOptions = {
+  optionValueField: 'id',
+  optionTextField: 'text',
+  keyCodeToRemoveSelected: 'Backspace',
+  keyCodeToOptionsOpen: ['ArrowDown'],
+  keyCodeToOptionsSelect: ['Tab', 'Enter'],
+  keepSelectedItems: false
+  // autoSelectSingleOption: true
+};
 @NgModule({
   declarations: [
     AccueilComponent,
@@ -22,7 +32,7 @@ import{AccordionModule}from'ngx-bootstrap/accordion'
   ],
   imports: [
     CommonModule,
-    AdhesionEntrepriseRoutingModule, FormsModule,AccordionModule,
+    AdhesionEntrepriseRoutingModule, FormsModule,AccordionModule, NgxSelectModule.forRoot(customSelectOptions),
   ]
 })
 export class AdhesionEntrepriseModule { }

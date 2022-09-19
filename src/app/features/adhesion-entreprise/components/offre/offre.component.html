@@ -1,26 +1,131 @@
 <div class="container">
-
- 
+    <table style="width: 100%;">
+        <tr class="d-flex">
+            <td class="col-3 text-center"
+                style=" border: none ; ">
+                <ngx-select style=" position: relative; top: 70%;" [items]="produits" [(ngModel)]="selectedProduct"></ngx-select>
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9;border-left: 0.5px groove #A9A9A9; border-top: 0.5px groove #A9A9A9;border-top-left-radius: 20%;border-top-right-radius: 20%;">
+                <div class="row"><span class="text-center">Offre A</span></div>
+                <div class="row"><span class="text-center"
+                        style="color:red;font-size:40px;">{{offres[0].tarification.mntCotTotal }}€ </span></div>
+                <ngx-select [items]="colleges" [(ngModel)]="collegeOffre1"></ngx-select>
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9; border-top: 0.5px groove #A9A9A9;border-top-left-radius: 20%;border-top-right-radius: 20%;">
+                <div class="row"><span class="text-center">Offre B</span></div>
+                <div class="row"><span class="text-center"
+                        style="color:red;font-size:40px;">{{offres[1].tarification.mntCotTotal }}€ </span></div>
+                <ngx-select [items]="colleges" [(ngModel)]="collegeOffre2"></ngx-select>
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9; border-top: 0.5px groove #A9A9A9; border-top-left-radius: 20%;border-top-right-radius: 20%;">
+                <div class="row"><span class="text-center">Offre C</span></div>
+                <div class="row"><span class="text-center"
+                        style="color:red;font-size:40px;">{{offres[2].tarification.mntCotTotal }}€</span> </div>
+                <ngx-select [items]="colleges" [(ngModel)]="collegeOffre3"></ngx-select>
+            </td>
+        </tr>
+    </table>
     <accordion>
         <accordion-group heading="Garanties" panelClass="customClass">
-            <accordion-group   heading="optique"  panelClass="customClass2">
-                accordion 1-1
+            <accordion-group *ngFor="let garantie of garanties" heading="{{garantie}}" panelClass="customClass2">
+                <table style="width: 100%;">
+                    <tr class="d-flex">
+                        <td class="col-3 text-center" style="border-right: 0.5px groove #A9A9A9;"> </td>
+                        <td class="col-3 text-center" style="border-right: 0.5px groove #A9A9A9;">
+                            {{getDescription(0,garantie)}} </td>
+                        <td class="col-3 text-center" style="border-right: 0.5px groove#A9A9A9;">
+                            {{getDescription(1,garantie)}} </td>
+                        <td class="col-3 text-center"> {{getDescription(2,garantie)}} </td>
+                    </tr>
+                </table>
             </accordion-group>
-            <accordion-group   heading="dentaire" panelClass="customClass2">
-                accordion 1-2
-            </accordion-group>
+
         </accordion-group>
-       
+
         <accordion-group heading="Structure de cotisation" panelClass="customClass">
-            <accordion-group   heading="accordion 2-1" panelClass="customClass2">
-                accordion 2-1
+            <accordion-group panelClass="customClass2">
+
+                <table class="table table-striped" style="width: 100%; margin-bottom :0px">
+                    <tbody>
+                        <tr class="d-flex">
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                Uniforme
+                            </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getUniforme(0)}} </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove#A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getUniforme(1)}} </td>
+                            <td class="col-3 text-center" style=" border-bottom: 0.5px groove #A9A9A9;">
+                                {{getUniforme(2)}}
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;"> Adulte
+                                &
+                                Enfant </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getAdultEnfant(0)}} </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove#A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getAdultEnfant(1)}} </td>
+                            <td class="col-3 text-center" style=" border-bottom: 0.5px groove #A9A9A9;">
+                                {{getAdultEnfant(2)}} </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;"> Isolé &
+                                Famille </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove #A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getIsoleFamille(0)}} </td>
+                            <td class="col-3 text-center"
+                                style="border-right: 0.5px groove#A9A9A9;border-bottom: 0.5px groove #A9A9A9;">
+                                {{getIsoleFamille(1)}} </td>
+                            <td class="col-3 text-center" style=" border-bottom: 0.5px groove #A9A9A9;">
+                                {{getIsoleFamille(2)}} </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td class="col-3 text-center" style="border-right: 0.5px groove #A9A9A9;"> Composition </td>
+                            <td class="col-3 text-center" style="border-right: 0.5px groove #A9A9A9;">
+                                {{getComposition(0)}}
+                            </td>
+                            <td class="col-3 text-center" style="border-right: 0.5px groove#A9A9A9;">
+                                {{getComposition(1)}}
+                            </td>
+                            <td class="col-3 text-center" style=" border-bottom: 0.5px groove #A9A9A9;">
+                                {{getComposition(2)}} </td>
+                        </tr>
+                    </tbody>
+                </table>
             </accordion-group>
         </accordion-group>
     </accordion>
-
-    <button type="submit" class="btn btn-primary rounded-pill " (click)="onClickBtnTarifs()">tarifs</button>
-
-
-
-
+    <table style="width: 100%;">
+        <tr class="d-flex">
+            <td class="col-3 text-center"
+                style=" border: none ; ">
+                
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9;border-left: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
+                <button class="btn btn-primary" (click)="selectOffre1()">Choisir</button>
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
+                <button class="btn btn-primary"(click)="selectOffre2()">Choisir</button>
+            </td>
+            <td class="col-3 text-center"
+                style="border-right: 0.5px groove #A9A9A9; border-bottom: 0.5px groove #A9A9A9; border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;">
+                <button class="btn btn-primary" (click)="selectOffre3()" >Choisir</button>
+            </td>
+        </tr>
+    </table>
 </div>

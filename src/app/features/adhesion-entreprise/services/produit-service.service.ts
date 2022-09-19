@@ -12,9 +12,9 @@ export class ProduitServiceService {
   constructor(private http: HttpClient) { }
 
 
-  getAllProducts(): Observable<ProduitModel[]>{
+  getAllProducts(): Observable<ProduitModel[]> {
     console.log("enter ProduitServiceService");
-    const url ="http://localhost:8080/produit/getAllProducts";
+    const url = "http://localhost:8080/produit/getAllProducts";
     return this.http.get<ProduitModel[]>(url);
   }
 }

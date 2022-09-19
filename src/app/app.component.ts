@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'oav-front';
   public options = {
 
-    position: ['top'],
+    position: ['top', 'center'],
 
     timeOut: 3000,
 

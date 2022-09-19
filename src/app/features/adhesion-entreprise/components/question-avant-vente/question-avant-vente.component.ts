@@ -55,8 +55,9 @@ export class QuestionAvantVenteComponent implements OnInit {
       })
     })
     this.questionEntrepriseService.saveResponses(listofEntrepriseQuestion).subscribe(rslt => {
+      this.showOffre = true;
     });
-    this.showOffre = true;
+  
   }
 
 }

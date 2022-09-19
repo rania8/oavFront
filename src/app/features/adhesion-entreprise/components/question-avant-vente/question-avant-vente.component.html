@@ -32,6 +32,6 @@
             <div class="row mt-5 mb-5 "><span class="border-bottom"></span></div>
         </div>
     </form>
-    <app-offre id="offreComponent"  *ngIf="showOffre">
+    <app-offre id="offreComponent"  [idEntreprise]="entreprise.idEntreprise" *ngIf="showOffre">
     </app-offre>
 </div>

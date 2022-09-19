@@ -118,7 +118,7 @@ export class SiretValidationComponent implements OnInit {
 
 
     this.siretService.updateEntreprise(this.entreprise).subscribe(rslt => {
-      this.notificationsService.success("Informations prises en compte");
+      this.notificationsService.success("Mise à jour avec succès");
 
       this.entreprise = rslt;
       this.entreprise.totaleAdresse = rslt.numeroVoieEtablissement + "" + rslt.typeVoieEtablissement + "" + rslt.libelleVoieEtablissement + rslt.libelleCommuneEtablissement; this.displayProduit = true;
